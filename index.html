@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>LinkVault — Instagram DM Resource Organizer</title>
+    <meta name="description" content="A premium personal dashboard to save, tag, organize and find resources sent to your Instagram DMs instantly." />
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23f5a623%22/><text y=%2270%22 x=%2220%22 font-size=%2260%22 font-family=%22sans-serif%22 font-weight=%22bold%22 fill=%22%23000%22>LV</text></svg>" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="app-container">
+        <!-- Desktop Sidebar (Hidden on Mobile) -->
+        <aside class="sidebar">
+          <div class="logo-container">
+            <div class="logo-icon">LV</div>
+            <div class="logo-text">LinkVault</div>
+          </div>
+          <nav>
+            <ul class="nav-links">
+              <li class="nav-link-item active" data-screen="home">
+                <a href="#home">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  Home Dashboard
+                </a>
+              </li>
+              <li class="nav-link-item" data-screen="library">
+                <a href="#library">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+                  Resource Library
+                </a>
+              </li>
+              <li class="nav-link-item" data-screen="add">
+                <a href="#add">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                  Add Resource
+                </a>
+              </li>
+              <li class="nav-link-item" data-screen="favorites">
+                <a href="#favorites">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  Favorites
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Workspace (Dynamic content loaded here) -->
+        <main class="main-content">
+          <!-- Top bar search & profile header -->
+          <div class="top-search-bar" id="topSearchBarRow">
+            <svg class="top-search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" class="top-search-input" id="globalSearchInput" placeholder="Quick search tags, creators, titles..." />
+          </div>
+
+          <!-- Screen Portals -->
+          <div id="screen-home" class="screen-view"></div>
+          <div id="screen-library" class="screen-view" style="display: none;"></div>
+          <div id="screen-add" class="screen-view" style="display: none;"></div>
+          <div id="screen-favorites" class="screen-view" style="display: none;"></div>
+          <div id="screen-category" class="screen-view" style="display: none;"></div>
+        </main>
+
+        <!-- Mobile Bottom Nav (Hidden on Desktop) -->
+        <nav class="mobile-nav">
+          <a href="#home" class="mobile-nav-item active" data-screen="home">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Home
+          </a>
+          <a href="#library" class="mobile-nav-item" data-screen="library">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+            Library
+          </a>
+          <a href="#add" class="mobile-nav-item add-btn-special" data-screen="add">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14M5 12h14"/></svg>
+          </a>
+          <a href="#favorites" class="mobile-nav-item" data-screen="favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            Starred
+          </a>
+          <a href="#search-mobile" class="mobile-nav-item" id="mobileSearchTrigger">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Search
+          </a>
+        </nav>
+      </div>
+
+      <!-- Toast Containers -->
+      <div class="toast-container" id="toastContainer"></div>
+
+      <!-- Detail Page & AI Drawer Modal -->
+      <div class="modal-overlay" id="globalModal">
+        <div class="modal-container">
+          <div class="modal-header">
+            <h3 id="modalTitle">Resource Details</h3>
+            <button class="modal-close" id="modalCloseBtn">&times;</button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <!-- Dynamic Content -->
+          </div>
+          <div class="modal-footer" id="modalFooter">
+            <!-- Dynamic Footer Buttons -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Confirmation Modal -->
+      <div class="modal-overlay" id="confirmModal">
+        <div class="modal-container" style="max-width: 400px;">
+          <div class="modal-body confirm-box">
+            <span class="confirm-icon">⚠️</span>
+            <h3 class="confirm-title">Delete Resource?</h3>
+            <p class="confirm-text">This action cannot be undone. Are you sure you want to permanently delete this resource from your LinkVault?</p>
+            <div style="display: flex; gap: 0.75rem; justify-content: center;">
+              <button class="btn btn-secondary" id="confirmCancelBtn" style="padding: 0.6rem 1.2rem;">Cancel</button>
+              <button class="btn btn-danger" id="confirmDeleteBtn" style="padding: 0.6rem 1.2rem;">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
